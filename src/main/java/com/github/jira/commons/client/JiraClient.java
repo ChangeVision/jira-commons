@@ -24,7 +24,7 @@ import com.github.jira.commons.model.SearchResults;
 
 public class JiraClient {
 	private static final Logger logger = LoggerFactory.getLogger(JiraClient.class);
-	private static final String DEFAULT_TIMEOUT = "1500";
+	private static final String DEFAULT_TIMEOUT = "5000";
 	private String context = "http://localhost:8080/jira/";
 	private String userName = "";
 	private String password = "";
