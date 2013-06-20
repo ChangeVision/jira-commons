@@ -234,9 +234,12 @@ public class JiraClient {
 		SearchResults resultMap = new SearchResults();
 		
 		ClientResource resource = createClientResource(relativeUrl);
+		int length = requestParams.toString().length();
 		Representation representation = null;
 		try {
-			representation = resource.post(new JsonRepresentation(requestParams));
+			JsonRepresentation entity = new JsonRepresentation(requestParams);
+			entity.setSize(length);
+			representation = resource.post(entity);
 			if (representation != null) {
 				resultMap = new ObjectMapper().readValue(representation.getStream(), SearchResults.class);
 			}
